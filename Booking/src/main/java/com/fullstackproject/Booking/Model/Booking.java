@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Booking {
 	
 	@Id
-	private String BookingId;
+	private String bookingId;
 	
 	private String noofpassengers;
 	
@@ -34,11 +34,11 @@ public class Booking {
 
 
 	public String getBookingId() {
-		return BookingId;
+		return bookingId;
 	}
 
 	public void setBookingId(String bookingId) {
-		BookingId = bookingId;
+		bookingId = bookingId;
 	}
 
 	public String getNoofpassengers() {
@@ -81,7 +81,7 @@ public class Booking {
 
 	@Override
 	public String toString() {
-		return "Booking [BookingId=" + BookingId + ", noofpassengers=" + noofpassengers + ", passengerName="
+		return "Booking [BookingId=" + bookingId + ", noofpassengers=" + noofpassengers + ", passengerName="
 				+ passengerName + ", passengerMail=" + passengerMail + ", flight=" + flight + "]";
 	}
 

@@ -34,13 +34,13 @@ public class BookingController {
 		return Bookingrepo.findAll();
 	}	
 	
-	// create employee rest api
+	// create  bookingrest api
 	@PostMapping("/createbooking")
 	public Booking createBooking(@RequestBody Booking booking) {
 		return Bookingrepo.save(booking);
 	}
 	
-	// get employee by id rest api
+	// get booking by id rest api
 	@GetMapping("/Bookings/{BookingId}")
 	public ResponseEntity<Booking> getEmployeeById(@PathVariable String BookingId) {
 		Booking booking= Bookingrepo.findById(BookingId)
@@ -48,9 +48,9 @@ public class BookingController {
 		return ResponseEntity.ok(booking);
 	}
 	
-	// update employee rest api
+	// update  booking rest api
 	
-	@PutMapping("/Bookings/{BookingId}")
+	@PutMapping("/Booking/{BookingId}")
 	public ResponseEntity<Booking> updateEmployee(@PathVariable String BookingId, @RequestBody Booking bookingDetails){
 		Booking booking = Bookingrepo.findById(BookingId)
 				.orElseThrow(() -> new RecordNotFoundException("Flight not exist with id :" + BookingId));
@@ -64,7 +64,7 @@ public class BookingController {
 		return ResponseEntity.ok(updatedFlight);
 	}
 	
-	// delete employee rest api
+	// delete  booking rest api
 	@DeleteMapping("/flights/{flightId}")
 	public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable String BookingId){
 		Booking booking =Bookingrepo.findById(BookingId)
@@ -76,7 +76,7 @@ public class BookingController {
 		return ResponseEntity.ok(response);
 	}
 	
-	@GetMapping("/Booking/{flightId}")
+	@GetMapping("/deleteBooking/{flightId}")
 	public ResponseEntity<Booking> getFlightById(@PathVariable String flightId) {
 		Booking flight= Bookingrepo.findById(flightId)
 				.orElseThrow(() -> new RecordNotFoundException("Flight not exist with id :" + flightId));
