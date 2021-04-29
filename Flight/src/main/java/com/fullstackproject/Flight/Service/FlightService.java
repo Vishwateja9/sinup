@@ -1,16 +1,17 @@
 package com.fullstackproject.Flight.Service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 
 
 import com.fullstackproject.Flight.Model.Flight;
-import com.sun.tools.javac.util.List;
+
 
 public interface FlightService {
 	
-	public java.util.List<Flight> getAllFlights();
+	public List<Flight> getAllFlights();
 	
 	public Flight createFlight(Flight flight);
 	
@@ -18,7 +19,7 @@ public interface FlightService {
 	
    public List<Flight> findBySourceairport(String sourceairport);
     
-    public List<Flight> findByDstnairport(String dstnairport);
+    public java.util.List<Flight> findByDstnairport(String dstnairport);
     
     public List<Flight> findBySourceAndDstn(String sourceairport ,String dstnairport);
     

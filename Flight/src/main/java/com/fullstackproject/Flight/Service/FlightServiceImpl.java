@@ -21,53 +21,53 @@ public class FlightServiceImpl implements FlightService {
 	@Autowired
 	FlightService flightservice;
 
-	@Override
+	
 	public List<Flight> getAllFlights() {
 		return flightrepo.findAll();
 	}
 
-	@Override
+
 	public Flight createFlight(Flight flight) {
 		return flightrepo.save(flight);
 	}
 
-	@Override
+
 	public ResponseEntity<Flight> getFlightById(String flightId) {
 		Flight flight= flightrepo.findById(flightId)
 				.orElseThrow(() -> new RecordNotFoundException("Flight not exist with id :" + flightId));
 		return ResponseEntity.ok(flight);
 	}
 
-	@Override
-	public com.sun.tools.javac.util.List<Flight> findBySourceairport(String sourceairport) {
-		return flightservice.findBySourceairport(sourceairport);
+	
+	public List<Flight> findBySourceairport(String sourceairport) {
+		return flightrepo.findBySourceairport(sourceairport);
+	}
+	
+	
+	
+	public List<Flight> findByDstnairport(String dstnairport) {
+		
+		return flightrepo.findByDstnairport(dstnairport);
 	}
 
-	@Override
-	public com.sun.tools.javac.util.List<Flight> findByDstnairport(String dstnairport) {
-		return flightservice.findBySourceairport(dstnairport);
+	
+	public List<Flight> findBySourceAndDstn(String sourceairport, String dstnairport) {
+		
+		return flightrepo.findBySourceAndDstn(sourceairport,dstnairport);
 	}
 
-	@Override
-	public com.sun.tools.javac.util.List<Flight> findBySourceAndDstn(String sourceairport, String dstnairport) {
-		return flightservice.findBySourceAndDstn(sourceairport,dstnairport);
+	
+	public List<Flight> findBydate(String date) {
+		return flightrepo.findBydate(date);
 	}
 
-	@Override
-	public com.sun.tools.javac.util.List<Flight> findBydate(String date) {
-		return flightservice.findBydate(date);
+	
+	public List<Flight> findBySourceDstnDate(String sourceairport, String dstnairport, String date) {
+		return flightrepo.findBySourceDstnDate(sourceairport,dstnairport,date);
 	}
 
-	@Override
-	public com.sun.tools.javac.util.List<Flight> findBySourceDstnDate(String sourceairport, String dstnairport,
-			String date) {
-		return flightservice.findBySourceDstnDate(sourceairport,dstnairport,date);
-	}
+	
 
-
-
-
-	@Override
 	public ResponseEntity<Map<String, Boolean>> deleteFlight(String flightId) {
 		Flight flight =flightrepo.findById(flightId)
 				.orElseThrow(() -> new RecordNotFoundException("Flight not exist with id :" + flightId));
@@ -78,7 +78,7 @@ public class FlightServiceImpl implements FlightService {
 		return ResponseEntity.ok(response);
 	}
 
-	@Override
+	
 	public ResponseEntity<Flight> updateFlight(String flightId, Flight flightDetails) {
 	
 		Flight flight = flightrepo.findById(flightId)
@@ -95,6 +95,7 @@ public class FlightServiceImpl implements FlightService {
 		return ResponseEntity.ok(updatedFlight);
 	}
 
+	
 	
 	
 }

@@ -58,25 +58,25 @@ public class FlightController {
 	@GetMapping("/sourceflight/{sourceairport}")
 	public List<Flight> findBySourceairport(@PathVariable String sourceairport) {
 		
-		return flightservice.findBySourceairport(sourceairport);
+		return flightrepo.findBySourceairport(sourceairport);
 	}
 	
 	@GetMapping("/dstnflight/{dstnairport}")
 	public List<Flight> findByDstnairport(@PathVariable String dstnairport) {
 		
-		return flightservice.findBySourceairport(dstnairport);
+		return flightrepo.findBySourceairport(dstnairport);
 	}
 	
 	@GetMapping("/sourcedstnflights/{sourceairport}/{dstnairport}")
 	public List<Flight> findBySourceAndDstn(@PathVariable String sourceairport,String dstnairport) {
 		
-		return flightservice.findBySourceAndDstn(sourceairport,dstnairport);
+		return flightrepo.findBySourceAndDstn(sourceairport,dstnairport);
 	}
 	
 	@GetMapping("sourcedstndate/flights/{sourceairport}/{dstnairport}/{date}")
 	public List<Flight> findBySourceDstnDate(@PathVariable String sourceairport,String dstnairport,String date) {
 		
-		return flightservice.findBySourceDstnDate(sourceairport,dstnairport,date);
+		return flightrepo.findBySourceDstnDate(sourceairport,dstnairport,date);
 	}
 	// update employee rest api
 	
